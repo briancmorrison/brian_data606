@@ -19,7 +19,10 @@ Can feature engineering be used to augment the performance of models?
 
 ### Proposed Models & Approach
 
-While model proposals may shift based on initial performance analyses, I am principally interested in investigating the performance differences between an Ensemble, or Stacking, Classifier and a Deep Learning Model in this project. 
+While model proposals may shift based on initial performance analyses, I am principally interested in investigating the performance differences between an Ensemble, or Stacking, Classifier and a Deep Learning Model in this project. My proposed approaches to building these models are: 
+
+* **Stacking Classifier** - Use [Lazy Predict](https://lazypredict.readthedocs.io/en/latest/) to fit multiple simple classification models to the dataset, selecting the top five highest performing models to aggregate into a final stacked model. Then, experiment with both Logistic Regression and XGBoost as final classifiers within the model to assign decisive predictions about classes. 
+*  **Deep Learning Model** - 
 
 PROPOSE METHODS OF FEATURE ENGINEERING
 
