@@ -9,7 +9,7 @@ Problem Statement: There are more ways to commit payment fraud today than there 
 
 The proposed dataset for this project is a large log of e-commerce transactions with a range of associated details. The dataset can be accessed [here](https://www.kaggle.com/competitions/ieee-fraud-detection/data). The data was made available through a Kaggle competition held by the IEEE Computational Intelligence Society (IEEE-CIS), and contains real-world ecommerce transactions provided by Vesta, an organization actively targeting digital fraud. 
 
-The dataset is 1.35 GB in size, comprised of four csv files - two training and two testing files, separated by the type of features they contain. Two of the files contain transactional data, basic information about the transaction such as product and payment details, and two of the files contain identity data, information about the purchaser such as device and personal information. The target variable, feature 'isFraud', is a binary variable representing whether or not the transactional was fraudulent. The transactions can be correlated between datasets by an identifying feature, 'TransactionID'. 
+The dataset is 1.35 GB in size, comprised of four csv files - two training and two testing files, separated by the type of features they contain. Two of the files contain transactional data, basic information about the transaction such as product and payment details, and two of the files contain identity data, information about the purchaser such as device and personal information. The transactional data contains 392 unique features, while the identity data contains 40 unique features. The target variable, feature 'isFraud', is a binary variable representing whether or not the transactional was fraudulent. The transactions can be correlated between datasets by an identifying feature, 'TransactionID'. The training dataset contains over 590,000 individual transactions, while the testing dataset contains just over 500,000 individual transactions.
 
 ### Research Question
 
@@ -22,9 +22,9 @@ Can feature engineering be used to augment the performance of models?
 While model proposals may shift based on initial performance analyses, I am principally interested in investigating the performance differences between an Ensemble, or Stacking, Classifier and a Deep Learning Model in this project. My proposed approaches to building these models are: 
 
 * **Stacking Classifier** - Use [Lazy Predict](https://lazypredict.readthedocs.io/en/latest/) to fit multiple simple classification models to the dataset, selecting the top five highest performing models to aggregate into a final stacked model. Then, experiment with both Logistic Regression and XGBoost as final classifiers within the model to assign decisive predictions about classes. 
-*  **Deep Learning Model** - 
+*  **Deep Learning Model** - Use Keras to build a simple neural network capable of binary classification, with a flattening input layer and no more than five subsequent dense layers. Potential to incorporate transfer learning by introducing a pretrained network to the dataset and adjusting its final output. 
 
-PROPOSE METHODS OF FEATURE ENGINEERING
+While the proposed models are relatively straightforward, I would also like to experiment with performing dimensionality reduction on the breadth of included features to enhance model performance. Specifically, given the diminished weight of the target class - or significantly lower presence of fraudulent transactions relative to legitimate transactions - I would like to experiment with approaches to minority class augmentation. Additionally, leveraging other approaches to dimensionality reduction, such as principal components analysis, is something I would like to include as a method for tuning out noise and boosting the training and testing performance of the model (reducing overfit potential). 
 
 ### Considerations
 
