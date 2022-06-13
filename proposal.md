@@ -11,6 +11,8 @@ The proposed dataset for this project is a large log of e-commerce transactions 
 
 The dataset is 1.35 GB in size, comprised of four csv files - two training and two testing files, separated by the type of features they contain. Two of the files contain transactional data, basic information about the transaction such as product and payment details, and two of the files contain identity data, information about the purchaser such as device and personal information. The transactional data contains 392 unique numerical and categorical features, while the identity data contains 40 unique numerical and categorical features. The target variable, feature 'isFraud', is a binary variable representing whether or not the transactional was fraudulent. The transactions can be correlated between datasets by an identifying feature, 'TransactionID'. The training dataset contains over 590,000 individual transactions, while the testing dataset contains just over 500,000 individual transactions.
 
+To tune out noise and boost training and testing performance of the models, I would like to perform dimensionality reduction and combine or remove less meaningful features. To do this, I plan to fit a simple classification model on a small subset of the data, and use the feature importances of that model to guide selection of features and principal components analysis to combine remaining features. Features deemed especially irrelevant, such as X
+
 ### Research Question
 
 Will Stacking (Ensemble) Classifiers or Deep Learning Models display the best performance in identifying and classifying instances of credit card fraud based on an array of relevant features? 
@@ -24,7 +26,7 @@ While model proposals may shift based on initial performance analyses, I am prin
 * **Stacking Classifier** - Use [Lazy Predict](https://lazypredict.readthedocs.io/en/latest/) to fit multiple simple classification models to the dataset, selecting the top five highest performing models to aggregate into a final stacked model. Then, experiment with both Logistic Regression and XGBoost as final classifiers within the model to assign decisive predictions about classes. 
 *  **Deep Learning Model** - Use [Keras](https://keras.io/) to build a simple neural network capable of binary classification, with a flattening input layer and no more than five subsequent dense layers. Potential to incorporate transfer learning by introducing a pretrained network to the dataset and adjusting its final output. 
 
-While the proposed models are relatively straightforward, I would also like to experiment with performing dimensionality reduction on the breadth of included features to enhance model performance. Specifically, given the diminished weight of the target class - or significantly lower presence of fraudulent transactions relative to legitimate transactions - I would like to experiment with approaches to minority class augmentation. Additionally, leveraging other approaches to dimensionality reduction, such as principal components analysis, is something I would like to include as a method for tuning out noise and boosting the training and testing performance of the model (reducing overfit potential). 
+Given the diminished weight of the target class - or significantly lower presence of fraudulent transactions relative to legitimate transactions - I will also experiment with approaches to minority class augmentation, such as X.
 
 ### Considerations
 
