@@ -12,11 +12,11 @@ Professor Jay Wang
 The University of Maryland, Baltimore County
 
 ## **Contents**
-* [Introduction & Background](#introduction-&-background)
+* [Introduction & Background](#introduction--background)
 
-* Source Data Splitting
+* [Source Data Splitting](#source-data-splitting)
 
-* EDA & Dataset Preparation
+* [EDA & Dataset Preparation](#eda--dataset-preparation)
 
 ## **Introduction & Background**
 
