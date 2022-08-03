@@ -22,6 +22,8 @@ The University of Maryland, Baltimore County
 
 * [Deep Learning Model](#deep-learning-model)
 
+* [Conclusions & Final Thoughts](#conclusions--final-thoughts)
+
 ## **Introduction & Background**
 
 ## **Source Data Splitting**
@@ -54,3 +56,13 @@ The University of Maryland, Baltimore County
 #### Model Creation
 
 #### Model Evaluation
+
+## **Conclusions & Final Thoughts**
+
+#### Performance & Comparison
+
+#### Future Directions for Similar Projects
+
+* *Feature Engineering* - 
+* *Hyperparameter Tuning* - 
+* *Transfer Learning* - 
