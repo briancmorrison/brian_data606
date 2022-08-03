@@ -18,8 +18,39 @@ The University of Maryland, Baltimore County
 
 * [EDA & Dataset Preparation](#eda--dataset-preparation)
 
+* [Ensemble Classification Model](#ensemble-classification-model)
+
+* [Deep Learning Model](#deep-learning-model)
+
 ## **Introduction & Background**
 
 ## **Source Data Splitting**
 
+-- Rationale and outline of Git commands -- 
+
 ## **EDA & Dataset Preparation**
+
+#### Null Handling & Feature Selection
+
+#### Feature Scaling
+
+#### Minority Class Augmentation
+##### SMOTE
+
+##### Random Oversampling
+
+## **Ensemble Classification Model**
+
+#### Lazy Predict
+
+#### Model Creation
+
+#### Model Evaluation
+
+## **Deep Learning Model**
+
+#### Consideration - Transfer Learning
+
+#### Model Creation
+
+#### Model Evaluation
