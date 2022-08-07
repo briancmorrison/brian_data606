@@ -63,7 +63,7 @@ After confirming that the dataset additions were made to the GitHub repository, 
 
 After handling necessary preparation steps for the source data files, the next step in the project is to explore, clean, and prepare data for introduction to machine learning models. Throughout the EDA & Dataset Preparation notebook, changes are made to align data parameters with those expected by many machine learning models - more specifically, changes are largely oriented towards gradient or distance-based models that may be sensitive to differences in the magnitude of variances in features. For example, a distance-based classifier may interpret differences in transaction amounts as more meaningful than differences in number of transactions made by cards due to large discrepancies in purchase amounts, despite the assumption in training that all features should be considered equally.
 
-Thus, the desired outcome from this notebook is a dataset that contains only integer columns with no null values, and whose column ranges are scaled to be approximately (0, 1). 
+Thus, the desired outcome from this notebook is a dataset that contains only integer columns with no null values, and whose column ranges are scaled to be approximately (0, 1). To start, the split datasets were read into the notebook from the project's GitHub repository, and stored in a dictionary of pandas dataframes. The transactional dataframes were then concatenated using pandas .concat method. A left outer merge, using pandas .merge method, was then performed to combine the transaction and identity dataframes, with the column 'TransactionID' used as the merge key. A left outer merge was used to ensure all transactions were retained in the final dataset.
 
 #### Null Handling & Feature Selection
 
