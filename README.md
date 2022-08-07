@@ -26,6 +26,8 @@ The University of Maryland, Baltimore County
 
 * [Conclusions & Final Thoughts](#conclusions--final-thoughts)
 
+* [References](#project-references)
+
 ## **Introduction & Background**
 
 The advent of cashless methods for payment transactions, such as credit cards, digital wallets, and buy now pay later (BNPY) services has incomparably augmented the way in which consumers interact with product and service providers. In fact, market research has indicated that as many as 80% of consumers used some form of digital payment - defined as including "...browser-based and in-app online purchases, in-store checkout using a mobile phone and/or QR code, and person-to-person payments..." in 2020, with nearly 60% of those consumers reporting using two or more forms of digital payment<sup>1</sup>. Cash and check transactions have been becoming increasingly rare relative to more convenient and secure payment methods, such as credit and debit cards - which accounted for over 50% of payment usage in 2019<sup>2</sup> and are almost ubiquitously linked to online transactional systems. While this shift has introduced a number of positive benefits to consumers, another area it has significantly affected is fraud; instances of attempted digital payment fraud have increased dramatically in the past few years, both in quantity and magnitude<sup>3,4</sup>. Given the compounding growth of digital transaction methods, and the resulting surge in fraudulent digital payment attempts, developing robust methods for identifying and classifying instances of fraud is a similarly compounding topic of interest to digital system providers.
@@ -42,7 +44,9 @@ For this project, only the training dataset will be used, as it contains the tar
 
 ## **Source Data Splitting**
 
--- Rationale and outline of Git commands -- 
+The first step in beginning this project is to migrate the dataset from its source location, Kaggle, to the project's GitHub repository. While GitHub provides a simple interface to manually upload data, there is a maximum file size limit of 50 MB. The maximum file size limit for data uploaded to a repository through the command lind, however, is 100 MB - a much more reasonable limit considering our dataset's size of over 600 MB.
+
+In this notebook, we take steps to split the dataset into 7 files below 100 MB to upload to the project's repository. 
 
 ## **EDA & Dataset Preparation**
 
