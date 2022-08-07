@@ -36,7 +36,7 @@ Problem Statement: There are more ways to commit payment fraud today than there 
 
 ## **Dataset Overview**
 
-The proposed dataset for this project is a large log of e-commerce transactions with a range of associated details. The dataset can be accessed [here](https://www.kaggle.com/competitions/ieee-fraud-detection/data). The data was made available through a Kaggle competition held by the IEEE Computational Intelligence Society (IEEE-CIS), and contains real-world ecommerce transactions provided by Vesta, an organization actively targeting digital fraud. 
+The dataset for this project is a large log of e-commerce transactions with a range of associated details. The dataset can be accessed [here](https://www.kaggle.com/competitions/ieee-fraud-detection/data). The data was made available through a Kaggle competition held by the IEEE Computational Intelligence Society (IEEE-CIS), and contains real-world ecommerce transactions provided by Vesta, an organization actively targeting digital fraud. 
 
 The dataset is 1.35 GB in size, comprised of four csv files - two training and two testing files, separated by the type of features they contain. Two of the files contain transactional data, basic information about the transaction such as product and payment details, and two of the files contain identity data, information about the purchaser such as device and personal information. The transactional data contains 392 unique numerical and categorical features, while the identity data contains 40 unique numerical and categorical features. The transactions can be correlated between datasets by an identifying feature, 'TransactionID'. 
 
@@ -76,7 +76,19 @@ After some basic data exploration, the first, and arguably most significant, dec
 
 There are a multitude of approaches to handling null values in a dataset, including value imputation, feature combination, dimensionality reduction, or simple removal.
 
-#### Feature Scaling
+#### Feature Encoding & Scaling
+
+Following the removal of null values, the next step in preparing our dataset for introduction to machine learning models is encoding categorical variables. 
+
+**Figure 2** - Feature distributions prior to scaling.
+
+![image](https://user-images.githubusercontent.com/80338181/183308390-fad2419a-08a9-4292-b6d3-ed37beb908c2.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183308507-ec7cca50-2eaf-453f-94bd-ce68fa1bb897.png#gh-dark-mode-only)
+
+**Figure 3** - Feature distributions following scaling. 
+
+![image](https://user-images.githubusercontent.com/80338181/183308415-3b1d8cd2-13f4-40b6-beac-5a9384416bc9.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183308542-eb619dd6-7306-4392-be83-837be452ebd9.png#gh-dark-mode-only)
 
 #### Minority Class Augmentation
 ##### SMOTE
