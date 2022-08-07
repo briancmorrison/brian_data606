@@ -44,9 +44,20 @@ For this project, only the training dataset will be used, as it contains the tar
 
 ## **Source Data Splitting**
 
-The first step in beginning this project is to migrate the dataset from its source location, Kaggle, to the project's GitHub repository. While GitHub provides a simple interface to manually upload data, there is a maximum file size limit of 50 MB. The maximum file size limit for data uploaded to a repository through the command lind, however, is 100 MB - a much more reasonable limit considering our dataset's size of over 600 MB.
+The first step in beginning this project is to migrate the dataset from its source location, Kaggle, to the project's GitHub repository. While GitHub provides a simple interface to manually upload data, there is a maximum file size limit of 50 MB. The maximum file size limit for data uploaded to a repository through the command line, however, is 100 MB - a much more reasonable limit considering our transactional dataset's size of over 600 MB.
 
-In this notebook, we take steps to split the dataset into 7 files below 100 MB to upload to the project's repository. 
+In this notebook, we take steps to split the transactional dataset into 7 files below 100 MB to upload to the project's repository. By using pandas to import the data into a dataframe, we can easily split the dataset into multiple smaller dataframes ready for export. Importantly, these dataframe were split row-wise to support later concatenation through pandas .concat method. The identification dataset was itself below 100 MB, so it did not need to be split before being uploaded to the repository. 
+
+Finally, a brief overview of the Git commands leveraged in uploading the data files to the project repository is provided for context. While many of these commands can be executed through a masked interface in the Visual Studio Code IDE, consideration of the Git commands popularly used for version control allows for some contextualization of the approach to data migration. An overview of the Git commands discussed is included below.
+
+* `$git --version` - *Checking Git version*
+* `$git clone https://github.com/briancmorrison/brian_data606.git` - *Cloning the project repository to make local edits*
+* `$cd brian_data606` - *Navigating to cloned directory*
+* `$git add ['filenames']` - *Adding files to local repository*
+* `$git commit -m "Uploaded Source Data"` - *Commiting changes locally, with '-m' specifying the commit message*
+* `$git push origin master` - *Pushing changes to GitHub repository, reconciling versions*
+
+After confirming that the dataset additions were made to the GitHub repository, we are ready to move on to dataset exploration, cleaning, and preparation.
 
 ## **EDA & Dataset Preparation**
 
