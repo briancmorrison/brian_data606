@@ -91,6 +91,15 @@ Following the removal of null values, the next step in preparing our dataset for
 ![image](https://user-images.githubusercontent.com/80338181/183308542-eb619dd6-7306-4392-be83-837be452ebd9.png#gh-dark-mode-only)
 
 #### Minority Class Augmentation
+
+##### PCA & Feature Space Evaluation
+
+**Figure 5** - Three-dimensional visualization of data distribution across principal components. 
+
+![image](https://user-images.githubusercontent.com/80338181/183309155-d2167b57-a869-4c83-aeba-cec4697c0580.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183309202-f1f9f6b2-3115-4d0c-835d-9424e1366adb.png#gh-dark-mode-only)
+
+
 ##### SMOTE
 
 ##### Random Oversampling
