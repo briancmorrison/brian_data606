@@ -61,7 +61,20 @@ After confirming that the dataset additions were made to the GitHub repository, 
 
 ## **EDA & Dataset Preparation**
 
+After handling necessary preparation steps for the source data files, the next step in the project is to explore, clean, and prepare data for introduction to machine learning models. Throughout the EDA & Dataset Preparation notebook, changes are made to align data parameters with those expected by many machine learning models - more specifically, changes are largely oriented towards gradient or distance-based models that may be sensitive to differences in the magnitude of variances in features. For example, a distance-based classifier may interpret differences in transaction amounts as more meaningful than differences in number of transactions made by cards due to large discrepancies in purchase amounts, despite the assumption in training that all features should be considered equally.
+
+Thus, the desired outcome from this notebook is a dataset that contains only integer columns with no null values, and whose column ranges are scaled to be approximately (0, 1). 
+
 #### Null Handling & Feature Selection
+
+After some basic data exploration, the first, and arguably most significant, decision to be made in this notebook is how to handle the high proportion of null values present in the dataset. Figure 1 below shows the proportion of null values in each column of the source dataset. The figure clearly displays an extremely high quantity of null values across a majority of features in the dataset, with only a small number of columns containing no null values. 
+
+**Figure 1** - Proportion of null values in each of the combined dataset's 434 columns.
+
+![image](https://user-images.githubusercontent.com/80338181/183307425-a5f42ec1-d7c7-434e-84fa-e007cd2faead.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183307470-2335ae61-f8c8-4b69-8568-0d1a4da2753d.png#gh-dark-mode-only)
+
+There are a multitude of approaches to handling null values in a dataset, including value imputation, feature combination, dimensionality reduction, or simple removal.
 
 #### Feature Scaling
 
