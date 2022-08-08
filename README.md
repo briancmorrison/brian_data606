@@ -65,7 +65,7 @@ After handling necessary preparation steps for the source data files, the next s
 
 Thus, the desired outcome from this notebook is a dataset that contains only integer columns with no null values, and whose column ranges are scaled to be approximately (0, 1). To start, the split datasets were read into the notebook from the project's GitHub repository, and stored in a dictionary of pandas dataframes. The transactional dataframes were then concatenated using pandas .concat method. A left outer merge, using pandas .merge method, was then performed to combine the transaction and identity dataframes, with the column 'TransactionID' used as the merge key. A left outer merge was used to ensure all transactions were retained in the final dataset.
 
-#### Null Handling & Feature Selection
+### Null Handling & Feature Selection
 
 After some basic data exploration, the first, and arguably most significant, decision to be made in this notebook is how to handle the high proportion of null values present in the dataset. Figure 1 below shows the proportion of null values in each column of the source dataset. The figure clearly displays an extremely high quantity of null values across a majority of features in the dataset, with only a small number of columns containing no null values. 
 
@@ -78,7 +78,7 @@ There are a multitude of approaches to handling null values in a dataset, includ
 
 This approach resulted in 20 remaining columns, with 1 being the Transaction ID identifying key and 1 being the isFraud class identifier - so a total of 18 features were retained for the models. They included the transaction date, transaction amount, product type, card type, and several counting features. One additional feature, card type, was also removed based on resource constraints, as encoding the categorical feature would have resulted in the addition of over 700 new columns. After this, 17 features remained for the models to be trained on.
 
-#### Feature Encoding & Scaling
+### Feature Encoding & Scaling
 
 Following the removal of null values, the next step in preparing our dataset for introduction to machine learning models is encoding categorical variables. A significant number of categorical features contained null values and were therefore removed in the previous step. However, the remaining categorical column, product type, needed to be converted to a numerically typed column through One Hot Encoding - a process by which unique categories from the feature are "popped" out into separate columns, with binary values indicating whether or not the record is associated with the category. The process is relatively straightforward, and resulted in the addition of 5 new columns to the dataset.
 
@@ -102,7 +102,7 @@ The MinMax Scaler was shown to outperform the Standard Scaler across all columns
 ![image](https://user-images.githubusercontent.com/80338181/183308415-3b1d8cd2-13f4-40b6-beac-5a9384416bc9.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183308542-eb619dd6-7306-4392-be83-837be452ebd9.png#gh-dark-mode-only)
 
-#### Minority Class Augmentation
+### Minority Class Augmentation
 
 After scaling our features, the final step in preparing data to be passed to machine learning models is remedying the class imbalance present in the dataset. In many binary classification problems like transactional fraud detection, there are magnitudes fewer instances of one class than another. Considering the volume of transactions made through digital mediums every day, and the limited number of individuals attempting to commit fraud, it is no surprise that our dataset contains many more legitimate transactions than fraudulent ones. Figure 4 below displays the distribution of class labels across our dataset - instances labeled as fraud account for only 3.5% of the total volume of transactions.
 
@@ -119,7 +119,7 @@ In order to ensure machine learning models have a sufficient volume of data to b
 
 As is mentioned in the SMOTE overview, closeness in feature space of fraud instances - essentially, how similar they are across all of the features considered by the machine learning models - may impact the effectiveness of our class balancing techniques. An approach involving the creation of synthetic data points that are near neighbors to existing data points relies on the assumption that those instances are in fact near neighbors of one another. It is worth examining the distribution in a collapsed feature space of our data points to identify whether instances of fraud appear to show closeness to one another, using an approach called Principal Component Analysis (PCA).
 
-##### PCA & Feature Space Evaluation
+#### PCA & Feature Space Evaluation
 
 PCA is a method of dimensionality reduction often used to collapse a number of features into a smaller number of aggregate features that maintain similar directional trends. Briefly, PCA relies on computing the eigenvectors and eigenvalues of a covariance matrix generated by converting features into directional arrays, which are used to guide the construction of combined features that capture as much of the original variance in features as possible. Using PCA, we are able to collapse our feature space down to 3 aggregate features, and examine the distribution of fraud instances across these features. If fraud instances are close in fetaure space, it is likely an indication that SMOTE will be a more effective method for class balancing.
 
@@ -134,14 +134,14 @@ After fitting our PCA model to our data and ensuring that a significant amount o
 
 It appears that the instances of fraud within the dataset are relatively close in feature space based on the principal components generated. For this reason, I would expect that SMOTE will perform well as a method for minority class augmentation. For the sake of comparison, we can generate separate training data for our SMOTE and ROS methods to compare resulting model performance, using a similar split and export approach as previously to make sure we can upload everything to the project's repository.
 
-##### SMOTE
+#### SMOTE
 
 **Figure 6** - Visualization of the class distributions across the SMOTE dataset. 
 
 ![image](https://user-images.githubusercontent.com/80338181/183318997-7f964aee-6dc2-4c7d-81a9-088c642c1332.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183319123-eef68ba5-912f-4d63-8973-7170d807af76.png#gh-dark-mode-only)
 
-##### Random Oversampling
+#### Random Oversampling
 
 **Figure 7** - Visualization of the class distributions across the ROS dataset.
 
@@ -150,11 +150,11 @@ It appears that the instances of fraud within the dataset are relatively close i
 
 ## **Ensemble Classification Model**
 
-#### Lazy Predict
+### Lazy Predict
 
-#### Model Creation
+### Model Creation
 
-#### Model Evaluation
+### Model Evaluation
 
 **Figure 8** - Ensemble Model classification matrix - SMOTE data.
 
@@ -168,11 +168,11 @@ It appears that the instances of fraud within the dataset are relatively close i
 
 ## **Deep Learning Model**
 
-#### Consideration - Transfer Learning
+### Consideration - Transfer Learning
 
-#### Model Creation
+### Model Creation
 
-#### Model Evaluation
+### Model Evaluation
 
 **Figure 10** - Deep Learning Model classification matrix - SMOTE data.
 
@@ -186,9 +186,9 @@ It appears that the instances of fraud within the dataset are relatively close i
 
 ## **Conclusions & Final Thoughts**
 
-#### Performance & Comparison
+### Performance & Comparison
 
-#### Future Directions for Similar Projects
+### Future Directions for Similar Projects
 
 * *Feature Engineering* - 
 * *Hyperparameter Tuning* - 
