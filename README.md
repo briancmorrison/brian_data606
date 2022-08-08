@@ -234,9 +234,39 @@ As expected based on our feature space evaluation, the model trained on the SMOT
 
 ## **Deep Learning Model**
 
+After evaluating our Stacking Classifier, we can progress on to building a Deep Learning model and evaluating its performance relative to the Ensemble Model. Deep Learning is a machine learning approach involving the use of neural networks, large webs of connected nodes with individually tuned activation functions that affect their output, to assess patterns in data features. While adept at discerning discrete interactions between data features, deep learning models require a substantial amount of data to be trained efficiently, and can often be less resource-efficient than simpler models such as those used in our Stacking Classifier.
+
+One important consideration here is that, unlike some other classification or dimensionality reduction models used in this project like Logistic Regression or PCA, Deep Learning is not distance-based and therefore does not require the robust feature scaling covered in our EDA & Dataset Preparation notebook. While the same cleaned and scaled data that was used for the Stacking Classifier will be used for the Deep Learning model for continuity, it would be possible to use unscaled features for this model.
+
 ### Consideration - Transfer Learning
 
+Prior to creating our Deep Learning model, it is important to consider the significant role that widely available, pre-trained models have on this space. Transfer Learning is a process by which pre-trained models with existing node weights are imported, edited to align with data input and output parameters, and trained on the relevant dataset. This method of implementing Deep Learning often shows higher performance in both classification and regression problems, as the models are exposed to exponentially higher volumes of data and may be less susceptible to common challenges such as overfitting to training data.
+
 ### Model Creation
+
+For this project, we will create a simple Deep Learning model comprised of 4 distinct layers of fully connected nodes. These layers are detailed below:
+
+* *Input Layer* - An input layer expecting a flattened array of 21 distinct features to be passed through it.
+* *First Dense Layer* - A dense layer of 64 neurons, in which each neuron receives input from each neuron in the preceding layer. The activation function is specified as relu, or Rectified Linear Unit, a linear activation function that outputs its input if it is positive or zero if it is negative.
+* *Second Dense Layer* - An identical dense layer to the previous layer, comprised of 64 neurons that receive input from all neurons in the preceding layer. The relu activation function is again used to determine neuron outputs. 
+* *Output Layer* - A final dense layer producing a single output informing the class label prediction. This layer employs a sigmoid activation function, which is a non-linear activation function that produces a value between zero and one representing the probability that the class prediction is not zero.
+
+```
+dl_model =   keras.Sequential([keras.layers.Flatten(input_shape = (21,)), 
+             keras.layers.Dense(64, activation = tf.nn.relu), 
+	           keras.layers.Dense(64, activation = tf.nn.relu),
+             keras.layers.Dense(1, activation = tf.nn.sigmoid)])
+```
+
+We can now compile our model to finalize its preparation, using a few important hyperparameters. A brief overview of the hyperparameters passed to through the model's compile method is included below:
+
+* *Adam Optimizer* - Adam is an optimization function used to determine the rate at which network weights are adjusted based on training data, adapting learning weights bassed on calculations using the gradient of the loss function.
+* *Binary Crossentropy Loss Function* - Binary Crossentropy is a loss function used in binary classification tasks, calculating a loss score based on the distance between actual class labels and predicted class labels.
+* *Accuracy Metric* - As was discussed in the previous notebook, accuracy is not a meaningful metric to consider in binary classification problems. We will leverage a unique Keras metric, binary accuracy, to assess the effectiveness of our models in this project.
+
+```
+dl_model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy']) 
+```
 
 ### Model Evaluation
 
