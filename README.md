@@ -138,12 +138,40 @@ It appears that the instances of fraud within the dataset are relatively close i
 
 #### SMOTE
 
+To generate and impute values using SMOTE, we will need to fit the SMOTE model to our training data, passing the parameters as a pandas dataframe of features and an array of class labels. The model defaults to using 5 nearest neighbors to generate synthetic points, which can be tuned if necessary. The code for performing the model fitting and synthetic data generation and imputation is included below.
+
+```
+from imblearn.over_sampling import SMOTE
+
+columns = list(train_data.columns)
+
+columns.remove('isFraud')
+
+X_SMOTE, y_SMOTE = SMOTE().fit_resample(train_data[columns], train_data['isFraud'])
+```
+
+Follwing this, we can examine our new class distributions to confirm that the balancing was successful. Figure 6 below displays the class distributions following SMOTE application. 
+
 **Figure 6** - Visualization of the class distributions across the SMOTE dataset. 
 
 ![image](https://user-images.githubusercontent.com/80338181/183318997-7f964aee-6dc2-4c7d-81a9-088c642c1332.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183319123-eef68ba5-912f-4d63-8973-7170d807af76.png#gh-dark-mode-only)
 
 #### Random Oversampling
+
+The process for generating and impute values using Random Oversampling is similarly straightforward, involving passing a pandas dataframe of features and an array of class labels to the model to fit and generate identical samples of the minority class. The code for performing the model fitting and data sampling is included below.
+
+'''
+from imblearn.over_sampling import RandomOverSampler
+
+y_train = train_data.pop('isFraud') 
+
+oversampler = RandomOverSampler(random_state = 4)
+
+X_ROS, y_ROS = oversampler.fit_resample(train_data, y_train)
+'''
+
+As with the SMOTE example, can examine our new class distributions in Figure 7 below. After handling our class imbalance issue, we are ready to progress on to creating, training, and evaluating machine learning models. 
 
 **Figure 7** - Visualization of the class distributions across the ROS dataset.
 
