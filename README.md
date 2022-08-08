@@ -74,11 +74,13 @@ After some basic data exploration, the first, and arguably most significant, dec
 ![image](https://user-images.githubusercontent.com/80338181/183307425-a5f42ec1-d7c7-434e-84fa-e007cd2faead.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183307470-2335ae61-f8c8-4b69-8568-0d1a4da2753d.png#gh-dark-mode-only)
 
-There are a multitude of approaches to handling null values in a dataset, including value imputation, feature combination, dimensionality reduction, or simple removal.
+There are a multitude of approaches to handling null values in a dataset, including value imputation, feature combination, dimensionality reduction, or simple removal. While each method generally has unique advantages and potential disadvantages, this project excluded any columns containing null values based on Google Colaboratory resource constraints. This is discussed in more detail in the future directions portion of the Conclusions & Final Thoughts section, dropping data points that may contain salient information for models to become attuned to is almost certain to degrade overall classification performance. 
+
+This approach resulted in 20 remaining columns, with 1 being the Transaction ID identifying key and 1 being the isFraud class identifier - so a total of 18 features were retained for the models. They included the transaction date, transaction amount, product type, card type, and several counting features. One additional feature, card type, was also removed based on resource constraints, as encoding the categorical feature would have resulted in the addition of over 700 new columns. After this, 17 features remained for the models to be trained on.
 
 #### Feature Encoding & Scaling
 
-Following the removal of null values, the next step in preparing our dataset for introduction to machine learning models is encoding categorical variables. 
+Following the removal of null values, the next step in preparing our dataset for introduction to machine learning models is encoding categorical variables. A significant number of categorical features contained null values and were therefore removed in the previous step. However, the remaining categorical column, product type, needed to be converted to a numerically typed column through One Hot Encoding - a process by which unique categories from the feature are "popped" out into separate columns, with binary values indicating whether or not the record is associated with the category. The process is relatively straightforward, and resulted in the addition of 5 new columns to the dataset.
 
 **Figure 2** - Feature distributions prior to scaling.
 
