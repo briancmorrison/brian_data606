@@ -92,6 +92,11 @@ Following the removal of null values, the next step in preparing our dataset for
 
 #### Minority Class Augmentation
 
+**Figure 4** - The training data class imbalance visualized. 
+
+![image](https://user-images.githubusercontent.com/80338181/183318868-3dcd96f7-94b4-47b1-8c49-18a37f11e0f7.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183318939-145ad114-26e1-4226-b9b4-3de3034945b4.png#gh-dark-mode-only)
+
 ##### PCA & Feature Space Evaluation
 
 **Figure 5** - Three-dimensional visualization of data distribution across principal components. 
@@ -99,10 +104,19 @@ Following the removal of null values, the next step in preparing our dataset for
 ![image](https://user-images.githubusercontent.com/80338181/183309155-d2167b57-a869-4c83-aeba-cec4697c0580.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183309202-f1f9f6b2-3115-4d0c-835d-9424e1366adb.png#gh-dark-mode-only)
 
-
 ##### SMOTE
 
+**Figure 6** - Visualization of the class distributions across the SMOTE dataset. 
+
+![image](https://user-images.githubusercontent.com/80338181/183318997-7f964aee-6dc2-4c7d-81a9-088c642c1332.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319123-eef68ba5-912f-4d63-8973-7170d807af76.png#gh-dark-mode-only)
+
 ##### Random Oversampling
+
+**Figure 7** - Visualization of the class distributions across the ROS dataset.
+
+![image](https://user-images.githubusercontent.com/80338181/183319161-be4bcbe4-429c-49ce-97f4-0668e8372650.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319203-a0b53f1c-afe2-4dda-9496-717172e0701c.png#gh-dark-mode-only)
 
 ## **Ensemble Classification Model**
 
@@ -112,6 +126,16 @@ Following the removal of null values, the next step in preparing our dataset for
 
 #### Model Evaluation
 
+**Figure 8** - Ensemble Model classification matrix - SMOTE data.
+
+![image](https://user-images.githubusercontent.com/80338181/183319363-8f89fae1-0803-493f-9498-860b9e67c54e.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319514-67fd3652-186c-4f56-b736-bd344579515f.png#gh-dark-mode-only)
+
+**Figure 9** - Ensemble Model classification matrix - ROS data.
+
+![image](https://user-images.githubusercontent.com/80338181/183319470-ca4c339a-4d4f-4382-90bc-297ab0ab77ac.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319555-11f13f7d-1019-4620-a6b7-95dcdebcea7d.png#gh-dark-mode-only)
+
 ## **Deep Learning Model**
 
 #### Consideration - Transfer Learning
@@ -119,6 +143,16 @@ Following the removal of null values, the next step in preparing our dataset for
 #### Model Creation
 
 #### Model Evaluation
+
+**Figure 10** - Deep Learning Model classification matrix - SMOTE data.
+
+![image](https://user-images.githubusercontent.com/80338181/183319614-d4ad874d-453b-4078-ad5a-554d8e346ee4.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319641-af499421-4d1c-4e25-b8e4-dfe6caafdde7.png#gh-dark-mode-only)
+
+**Figure 11** - Deep Learning Model classification matrix - ROS data.
+
+![image](https://user-images.githubusercontent.com/80338181/183319671-f2445aad-6190-4500-bf6b-79b59f236d01.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/80338181/183319716-04f82806-411a-4dab-8281-391c0f569a4d.png#gh-dark-mode-only)
 
 ## **Conclusions & Final Thoughts**
 
