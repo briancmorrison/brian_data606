@@ -102,6 +102,8 @@ The MinMax Scaler was shown to outperform the Standard Scaler across all columns
 ![image](https://user-images.githubusercontent.com/80338181/183308415-3b1d8cd2-13f4-40b6-beac-5a9384416bc9.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183308542-eb619dd6-7306-4392-be83-837be452ebd9.png#gh-dark-mode-only)
 
+Following feature scaling, data was split into training and testing sets, with 30% of the data being set aside for later model evaluation. Importantly, while using scikit-learn's train_test_split function to divide data, the field 'isFraud' needed to be passed to the stratify parameter of the function to ensure equal numbers of legitimate and fraudulent transactions were included in the training and testing data. 
+
 ### Minority Class Augmentation
 
 After scaling our features, the final step in preparing data to be passed to machine learning models is remedying the class imbalance present in the dataset. In many binary classification problems like transactional fraud detection, there are magnitudes fewer instances of one class than another. Considering the volume of transactions made through digital mediums every day, and the limited number of individuals attempting to commit fraud, it is no surprise that our dataset contains many more legitimate transactions than fraudulent ones. Figure 4 below displays the distribution of class labels across our dataset - instances labeled as fraud account for only 3.5% of the total volume of transactions.
