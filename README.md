@@ -161,7 +161,7 @@ Follwing this, we can examine our new class distributions to confirm that the ba
 
 The process for generating and impute values using Random Oversampling is similarly straightforward, involving passing a pandas dataframe of features and an array of class labels to the model to fit and generate identical samples of the minority class. The code for performing the model fitting and data sampling is included below.
 
-'''
+```
 from imblearn.over_sampling import RandomOverSampler
 
 y_train = train_data.pop('isFraud') 
@@ -169,7 +169,7 @@ y_train = train_data.pop('isFraud')
 oversampler = RandomOverSampler(random_state = 4)
 
 X_ROS, y_ROS = oversampler.fit_resample(train_data, y_train)
-'''
+```
 
 As with the SMOTE example, can examine our new class distributions in Figure 7 below. After handling our class imbalance issue, we are ready to progress on to creating, training, and evaluating machine learning models. 
 
