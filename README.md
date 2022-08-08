@@ -254,7 +254,7 @@ For this project, we will create a simple Deep Learning model comprised of 4 dis
 ```
 dl_model =   keras.Sequential([keras.layers.Flatten(input_shape = (21,)), 
              keras.layers.Dense(64, activation = tf.nn.relu), 
-	           keras.layers.Dense(64, activation = tf.nn.relu),
+	     keras.layers.Dense(64, activation = tf.nn.relu),
              keras.layers.Dense(1, activation = tf.nn.sigmoid)])
 ```
 
