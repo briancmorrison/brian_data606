@@ -82,10 +82,20 @@ This approach resulted in 20 remaining columns, with 1 being the Transaction ID 
 
 Following the removal of null values, the next step in preparing our dataset for introduction to machine learning models is encoding categorical variables. A significant number of categorical features contained null values and were therefore removed in the previous step. However, the remaining categorical column, product type, needed to be converted to a numerically typed column through One Hot Encoding - a process by which unique categories from the feature are "popped" out into separate columns, with binary values indicating whether or not the record is associated with the category. The process is relatively straightforward, and resulted in the addition of 5 new columns to the dataset.
 
+After encoding our categorical feature, it was possible to move on to scaling data - a requirement for many distance and gradient based machine learning models. Feature scaling involves standardizing features to a range of approximately (0, 1) and a mean value of approximately 0. This allows equal consideration of features by distance or gradient based models, which might otherwise assume that a larger magnitude of variance in one feature relative to others indicates heightened importance of that feature. Scaling is also a prerequisite for Principal Components Analysis, a dimensionality reduction method that is discussed in more detail in the Minority Class Augmentation section. Boxplots will be used to visualize the range and approximate percentile distributions of our features to guide scaling, with Figure 2 belowing showing the distribution of features, excluding transaction datetime, prior to scaling.
+
 **Figure 2** - Feature distributions prior to scaling.
 
 ![image](https://user-images.githubusercontent.com/80338181/183308390-fad2419a-08a9-4292-b6d3-ed37beb908c2.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183308507-ec7cca50-2eaf-453f-94bd-ce68fa1bb897.png#gh-dark-mode-only)
+
+In selecting a suitable scaler to use on data, considering distributions and percentiles, as well as the presence of outliers, can help guide decision-making. For our primary features visualized above, 3 types of scalers were tested to assess their effectiveness. They are:
+
+* *Standard Scaler* - A relatively simple scaling method where the mean of the distribution is subtracted from each value, and then values are scaled to unit variance - or divided by the standard deviation of the distribution.
+* *Robust Scaler* - A more sophisticated scaling method that is intended to provide enhanced tolerance for extreme outliers in leptokurtic data. The median is removed from the distribution and data is scaled according to the Interquartile Range (IQR). 
+* *MinMax Scaler* - A scaler designed for feature confined to a definite range with roughly uniform distribution. Values are scaled such that the minimum feature value is equal to 0, and the maximum feature value is equal to 1. 
+
+The MinMax Scaler was shown to outperform the Standard Scaler across all columns, as was expected based on the non-Gaussian distributions of the features. A relatively unexpected outcome was the MinMax Scaler also outperforming the Robust Scaler across all columns, despite the high prevalence of outliers in some features. With some exceptions, outliers did not appear to significantly influence percentile ranges, which may explain why the simple MinMax Scaler performed so well relative to the other methods. Figure 3 below shows the previously displayed feature distributions following scaling. 
 
 **Figure 3** - Feature distributions following scaling. 
 
@@ -93,6 +103,8 @@ Following the removal of null values, the next step in preparing our dataset for
 ![image](https://user-images.githubusercontent.com/80338181/183308542-eb619dd6-7306-4392-be83-837be452ebd9.png#gh-dark-mode-only)
 
 #### Minority Class Augmentation
+
+After scaling our features, the final step in preparing data to be passed to machine learning models is remedying the class imbalance present in the dataset. 
 
 **Figure 4** - The training data class imbalance visualized. 
 
