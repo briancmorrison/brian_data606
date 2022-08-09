@@ -24,7 +24,7 @@ The University of Maryland, Baltimore County
 
 * [Deep Learning Model](#deep-learning-model)
 
-* [Conclusions & Final Thoughts](#conclusions--final-thoughts)
+* [Conclusions & Future Directions](#conclusions--future-directions)
 
 * [References](#project-references)
 
@@ -293,7 +293,7 @@ After fitting the model to the training data, in a process much lengthier than t
 
 As was seen among the Stacking Classifiers, the Deep Learning model trained on the SMOTE data slightly outperformed the one trained on the ROS data, showing a combined F1 score of 0.59 compared to 0.54. Both of these scores are lower than that shown by the Stacking Classifier trained on SMOTE data. Examining the confusion matrics, it again appears that the SMOTE model was more precise in its class label predictions, mislabeling legitimate transactions at a significantly lower rate. The ROS model, however, produced the lowest number of fraudulent transactions mislabeled as legitimate among all models, a factor that may be relevant to specific business cases. Both models output a high number of legitimate transactions misclassified as fraudulent, again portraying a "wide net" approach to classification.
 
-## **Conclusions & Final Thoughts**
+## **Conclusions & Future Directions**
 
 This project served as a starting point for outlining potential performance discrepancies between Ensemble and Deep Learning Models in classifying instances of digital transaction fraud, including a full-cycle overview of data cleaning and preparation. In assessing the utility of the data preparation approaches and created models discussed in this project, it is important to reference the business context in which fraud detection systems are expected to perform. There are a multitude of use cases for fraud detection systems, ranging from suspicious activity flags to authoritative transaction-locking mechanisms. Investigating and acting upon identified instances of digital transaction fraud can generally be considered a very active process, involving a high degree of resource commitments to handle both the fraudulent transaction and the committing party. 
 
