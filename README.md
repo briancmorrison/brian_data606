@@ -93,7 +93,7 @@ In selecting a suitable scaler to use on data, considering distributions and per
 
 * *Standard Scaler* - A relatively simple scaling method where the mean of the distribution is subtracted from each value, and then values are scaled to unit variance - or divided by the standard deviation of the distribution.
 * *Robust Scaler* - A more sophisticated scaling method that is intended to provide enhanced tolerance for extreme outliers in leptokurtic data. The median is removed from the distribution and data is scaled according to the Interquartile Range (IQR). 
-* *MinMax Scaler* - A scaler designed for feature confined to a definite range with roughly uniform distribution. Values are scaled such that the minimum feature value is equal to 0, and the maximum feature value is equal to 1. 
+* *MinMax Scaler* - A scaler designed for features confined to a definite range with roughly uniform distribution. Values are scaled such that the minimum feature value is equal to 0, and the maximum feature value is equal to 1. 
 
 The MinMax Scaler was shown to outperform the Standard Scaler across all columns, as was expected based on the non-Gaussian distributions of the features. A relatively unexpected outcome was the MinMax Scaler also outperforming the Robust Scaler across all columns, despite the high prevalence of outliers in some features. With some exceptions, outliers did not appear to significantly influence percentile ranges, which may explain why the simple MinMax Scaler performed so well relative to the other methods. Figure 3 below shows the previously displayed feature distributions following scaling. 
 
