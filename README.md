@@ -295,7 +295,9 @@ As was seen among the Stacking Classifiers, the Deep Learning model trained on t
 
 ## **Conclusions & Final Thoughts**
 
-This project served as a starting point for outlining potential performance discrepancies between Ensemble and Deep Learning Models in classifying instances of digital transaction fraud, including a full-cycle overview of data cleaning and preparation. 
+This project served as a starting point for outlining potential performance discrepancies between Ensemble and Deep Learning Models in classifying instances of digital transaction fraud, including a full-cycle overview of data cleaning and preparation. In assessing the utility of the data preparation approaches and created models discussed in this project, it is important to reference the business context in which fraud detection systems are expected to perform. There are a multitude of use cases for fraud detection systems, ranging from suspicious activity flags to authoritative transaction-locking mechanisms. Investigating and acting upon identified instances of digital transaction fraud can generally be considered a very active process, involving a high degree of resource commitments to handle both the fraudulent transaction and the committing party. 
+
+It may be the case, then, that a model designer is interested in a model that flags as many instances of fraud as possible without flagging legitimate transactions, to mitigate the time and resources committed to investigating “cold” leads. However, it may also be the case that a "wider net" approach is desirable for its ability to prompt users about potentially suspicious activity detected in their transactions, wherein a model with less precision could be tolerable as consumers have an active role in examining and dismissing legitimate transactions that are classified incorrectly. 
 
 ### Performance & Comparison
 
