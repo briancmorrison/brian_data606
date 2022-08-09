@@ -303,6 +303,8 @@ It may be the case, then, that a model designer is interested in a model that fl
 
 ### Future Directions for Similar Projects
 
+While successful in identifying a discrepancy in predictive performance amoung unique data transformation and modeling approaches, there are a number of clear ways the present project could be improved to produce more robust fraud detection models.
+
 * *Feature Engineering* - 
 * *Hyperparameter Tuning* - 
 * *Transfer Learning* - 
