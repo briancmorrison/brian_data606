@@ -240,7 +240,9 @@ One important consideration here is that, unlike some other classification or di
 
 ### Consideration - Transfer Learning
 
-Prior to creating our Deep Learning model, it is important to consider the significant role that widely available, pre-trained models have on this space. Transfer Learning is a process by which pre-trained models with existing node weights are imported, edited to align with data input and output parameters, and trained on the relevant dataset. This method of implementing Deep Learning often shows higher performance in both classification and regression problems, as the models are exposed to exponentially higher volumes of data and may be less susceptible to common challenges such as overfitting to training data.
+Prior to creating our Deep Learning model, it is important to consider the significant role that widely available, pre-trained models have on this space. Transfer Learning is a process by which pre-trained models with existing node weights are imported, edited to align with data input and output parameters, and trained on the relevant dataset. This method of implementing Deep Learning often shows higher performance in both classification and regression problems, as the models are exposed to exponentially higher volumes of data and may be less susceptible to common challenges such as overfitting to training data. 
+
+While evaluating the effectiveness of pre-built and trained Deep Learning models in fraud detection is beyond the scope of the current project, communicating the potential for alternative approaches to creating robust fraud detection systems is. In many cases, transfer learning can simply be accomplished by importing a pre-built model into the workspace, adjusting its input and output layers to align with data and class label formats, and training on available data. The ability to transfer knowledge from one model to another is widely used across computer vision and object detection tasks.
 
 ### Model Creation
 
@@ -251,24 +253,33 @@ For this project, we will create a simple Deep Learning model comprised of 4 dis
 * *Second Dense Layer* - An identical dense layer to the previous layer, comprised of 64 neurons that receive input from all neurons in the preceding layer. The relu activation function is again used to determine neuron outputs. 
 * *Output Layer* - A final dense layer producing a single output informing the class label prediction. This layer employs a sigmoid activation function, which is a non-linear activation function that produces a value between zero and one representing the probability that the class prediction is not zero.
 
+The code for instantiating this model is included below.
+
 ```
+import tensorflow as tf
+from tensorflow import keras
+
 dl_model =   keras.Sequential([keras.layers.Flatten(input_shape = (21,)), 
              keras.layers.Dense(64, activation = tf.nn.relu), 
 	     keras.layers.Dense(64, activation = tf.nn.relu),
              keras.layers.Dense(1, activation = tf.nn.sigmoid)])
 ```
 
-We can now compile our model to finalize its preparation, using a few important hyperparameters. A brief overview of the hyperparameters passed to through the model's compile method is included below:
+After creating the model, it will be necessary to compile it to finalize its preparation, using a few important hyperparameters. A brief overview of the hyperparameters passed to through the model's compile method is included below:
 
 * *Adam Optimizer* - Adam is an optimization function used to determine the rate at which network weights are adjusted based on training data, adapting learning weights bassed on calculations using the gradient of the loss function.
 * *Binary Crossentropy Loss Function* - Binary Crossentropy is a loss function used in binary classification tasks, calculating a loss score based on the distance between actual class labels and predicted class labels.
-* *Accuracy Metric* - As was discussed in the previous notebook, accuracy is not a meaningful metric to consider in binary classification problems. We will leverage a unique Keras metric, binary accuracy, to assess the effectiveness of our models in this project.
+* *Accuracy Metric* - As was discussed in the previous section, accuracy is not a meaningful metric to consider in binary classification problems. We will leverage a unique Keras metric, binary accuracy, to assess the effectiveness of our models in this project.
+
+The code for compiling the model is included below. Similar to the Stacking Classifier that was built, no hyperparameter tuning or cross validation was performed with the model, highlighting an immediate area for future projects to build on this approach. This decision was again primarily made on the basis of resource constraints, and likely impacted resulting performance in novel classification tasks. The model as is is intended for use as a comparison relative to the Stacking Classifier, and not as a final version. 
 
 ```
 dl_model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy']) 
 ```
 
 ### Model Evaluation
+
+After fitting the model to the training data, in a process much lengthier than the Stacking Classifier, predictions were again generated based on test data features and compared to the actual class labels for each data instance. The confusion matrices for both models, fit to the SMOTE data and fit to the ROS data, are included in Figures 10 and 11 below. We will again be using these matrices and combined F1 scores to assess the performance of the models when exposed to testing data.
 
 **Figure 10** - Deep Learning Model classification matrix - SMOTE data.
 
@@ -280,7 +291,11 @@ dl_model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['b
 ![image](https://user-images.githubusercontent.com/80338181/183319671-f2445aad-6190-4500-bf6b-79b59f236d01.png#gh-light-mode-only)
 ![image](https://user-images.githubusercontent.com/80338181/183319716-04f82806-411a-4dab-8281-391c0f569a4d.png#gh-dark-mode-only)
 
+As was seen among the Stacking Classifiers, the Deep Learning model trained on the SMOTE data slightly outperformed the one trained on the ROS data, showing a combined F1 score of 0.59 compared to 0.54. Both of these scores are lower than that shown by the Stacking Classifier trained on SMOTE data. Examining the confusion matrics, it again appears that the SMOTE model was more precise in its class label predictions, mislabeling legitimate transactions at a significantly lower rate. The ROS model, however, produced the lowest number of fraudulent transactions mislabeled as legitimate among all models, a factor that may be relevant to specific business cases. Both models output a high number of legitimate transactions misclassified as fraudulent, again portraying a "wide net" approach to classification.
+
 ## **Conclusions & Final Thoughts**
+
+This project served as a starting point for outlining potential performance discrepancies between Ensemble and Deep Learning Models in classifying instances of digital transaction fraud, including a full-cycle overview of data cleaning and preparation. 
 
 ### Performance & Comparison
 
