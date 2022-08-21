@@ -32,7 +32,7 @@ The University of Maryland, Baltimore County
 
 ## **Project Presentation**
 
-The slide deck for this project's associated final presentation is included in the files list for this repository. The link to follow along as I walk through the slide deck and give an overview of the sections discussed in this file is available [here](LINK). Thank you for your interest in my project!
+The slide deck for this project's associated final presentation is included in the files list for this repository. The link to follow along as I walk through the slide deck and give an overview of the sections discussed in this file is available [here](https://youtu.be/9yt3VAlCl5U). Thank you for your interest in my project!
 
 ## **Introduction & Background**
 
